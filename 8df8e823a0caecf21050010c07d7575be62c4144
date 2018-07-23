@@ -1,0 +1,276 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7095c5_45f38d0a",
+        "filename": "config/application.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Remove these AJSC properties",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_65f811e6",
+        "filename": "config/application.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Remove these AJSC properties",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_85820551",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Remove/fix this",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_85e9a51c",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "swagger.directory hasn\u0027t been defined in this pom file.  And whatever value is used, it must match the directory used in resources plugin, line 216",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_c5e6bd44",
+        "filename": "src/main/java/META-INF/MANIFEST.MF",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Only .java files should be in src/main/java, resources should be in src/main/resources\n\nBut since this file is empty, you should probably just delete it.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_85d0c554",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/JerseyConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "These imports don\u0027t conform to ONAP coding guidelines; names should be in ASCII sort order.\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3-import-statements",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_e5bae109",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/SDCClientConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Is it really worth introducing lombok byte code generator just to avoid having Eclipse create some getters and setters?  The \"hidden\" code makes this class less maintainable and code coverage problematic.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_2548d92c",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/WebConfiguration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Replace tabs with 4 spaces as per coding guidelines\n\nhttps://wiki.onap.org/display/DW/Java+code+style",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_05a3559f",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/model/SDCContextRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Unhelpful and out-of-date javadoc",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_25a0d98f",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/model/SDCContextRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be 401 Unauthorized and not 400 Bad Request?",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_05ca754f",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/service/SpringServiceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "should be in a finally block",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_e5c0a12c",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/service/rs/RestService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Include 401 for unauthorized",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_c5c31d37",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/service/rs/RestService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "As a standard HTTP header, this could be a library constant, e.g. javax.ws.rs.core.HttpHeaders.AUTHORIZATION instead of String literal.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_05d115fb",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/model/test/ArtifactInfoTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Prefer assertEquals(expected, actual) to assertTrue(actual.equals(expected))\n\nThis way if there is a mismatch, junit will tell you exactly where.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_4535cd44",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/unittest/service/SDCContextBuilderTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "I think these tests are broken.  RestServiceImpl never throws ToscaCsarException.  If you expect an exception, you should have a fail() call here in case exception isn\u0027t thrown.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_253c592f",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/unittest/service/SDCContextRestAPITest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-23T16:25:10Z",
+      "side": 1,
+      "message": "Is this supposed to succeed or fail?  If fail, add a fail() call in case exception isn\u0027t thrown.  If succeed, remove the try/catch.",
+      "revId": "8df8e823a0caecf21050010c07d7575be62c4144",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
