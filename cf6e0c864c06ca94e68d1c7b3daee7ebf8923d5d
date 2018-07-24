@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7095c5_0c3ffa26",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-24T19:39:52Z",
+      "side": 1,
+      "message": "Correct parameter order is assertEquals(expected, actual), i.e.\n\n assertEquals(\"username\", config.getUsername());\n\ntoString() redundant since values are already Strings",
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_4c0c1295",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-24T19:39:52Z",
+      "side": 1,
+      "message": "Why is mock configuration used here?  You\u0027re not actually testing your code, just the mock framework.",
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
