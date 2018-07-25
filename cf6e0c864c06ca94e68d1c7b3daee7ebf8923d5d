@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "da7095c5_300c9042",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/service/rs/RestServiceImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2015
+      },
+      "writtenOn": "2018-07-25T16:35:59Z",
+      "side": 1,
+      "message": "Is this constant used somewhere ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 31,
+        "endLine": 40,
+        "endChar": 51
+      },
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7095c5_0754b552",
         "filename": "src/main/resources/logback.xml",
         "patchSetId": 2
