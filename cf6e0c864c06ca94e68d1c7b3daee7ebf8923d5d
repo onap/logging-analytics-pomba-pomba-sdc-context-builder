@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "da7095c5_d052f412",
+        "filename": "src/main/resources/logback.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-25T14:29:15Z",
+      "side": 1,
+      "message": "This is the same file as specified in the ONAP logging guidelines for developers\n\nhttps://wiki.onap.org/pages/viewpage.action?pageId\u003d28378955#ONAPApplicationLoggingSpecificationv1.2(Casablanca)-Logback.xml\n\nIf that is not correct, please update the wiki.",
+      "parentUuid": "da7095c5_0754b552",
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7095c5_0c3ffa26",
         "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
         "patchSetId": 2
