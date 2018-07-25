@@ -37,6 +37,23 @@
     },
     {
       "key": {
+        "uuid": "da7095c5_90b55ccf",
+        "filename": "src/main/resources/logback.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1077
+      },
+      "writtenOn": "2018-07-25T15:16:04Z",
+      "side": 1,
+      "message": "Yes, understood that one is a WIP, the final one is still in review as we just brought in MDCs - you have 2 options - go with one from another component already in like portal/policy/clamp/vid for example - or use the one being merged in the RI https://gerrit.onap.org/r/#/c/57171/4/reference/logging-kubernetes/logdemonode/charts/logdemonode/resources/config/logback.xml - however I am still testing this on the ELK stack and it will require the current indexes to change",
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7095c5_0c3ffa26",
         "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
         "patchSetId": 2
