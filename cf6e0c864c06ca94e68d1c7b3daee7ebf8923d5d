@@ -77,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "da7095c5_3c7467ce",
+        "filename": "src/main/resources/logback.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 3479
+      },
+      "writtenOn": "2018-07-26T12:54:07Z",
+      "side": 1,
+      "message": "It was agreed that we will address this later, added https://jira.onap.org/browse/LOG-578 to track this.",
+      "parentUuid": "da7095c5_90b55ccf",
+      "revId": "cf6e0c864c06ca94e68d1c7b3daee7ebf8923d5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7095c5_0c3ffa26",
         "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
         "patchSetId": 2
