@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7095c5_89b0cede",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/model/test/SDCContextRequestTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 2475
+      },
+      "writtenOn": "2018-07-27T13:52:02Z",
+      "side": 1,
+      "message": "Prefer org.junit.Assert (JUnit4) not junit.framework (JUnit3) imports",
+      "revId": "e67b803f3095b6525c5fa5f8444a34f09798bc26",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
