@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_731d4073",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 3479
+      },
+      "writtenOn": "2018-07-31T23:55:40Z",
+      "side": 1,
+      "message": "Missing spring-boot-maven-plugin\n\n\u003cplugin\u003e\n\t\t\t\t\u003cgroupId\u003eorg.springframework.boot\u003c/groupId\u003e\n\t\t\t\t\u003cartifactId\u003espring-boot-maven-plugin\u003c/artifactId\u003e\n\t\t\t\t\u003cexecutions\u003e\n\t\t\t\t\t\u003cexecution\u003e\n\t\t\t\t\t\t\u003cgoals\u003e\n\t\t\t\t\t\t\t\u003cgoal\u003erepackage\u003c/goal\u003e\n\t\t\t\t\t\t\u003c/goals\u003e\n\t\t\t\t\t\u003c/execution\u003e\n\t\t\t\t\u003c/executions\u003e\n\t\t\t\u003c/plugin\u003e",
+      "revId": "e67b803f3095b6525c5fa5f8444a34f09798bc26",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da7095c5_89b0cede",
         "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/model/test/SDCContextRequestTest.java",
         "patchSetId": 3
