@@ -256,7 +256,55 @@
                     </execution>
                 </executions>
             </plugin>
-
+            
+            <plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-resources-plugin</artifactId>
+							<executions>
+								<execution>
+									<id>copy-docker-file</id>
+									<phase>package</phase>
+									<goals>
+										<goal>copy-resources</goal>
+									</goals>
+									<configuration>
+										<outputDirectory>target</outputDirectory>
+										<overwrite>true</overwrite>
+										<resources>
+											<resource>
+												<directory>${basedir}/src/main/docker</directory>
+												<filtering>true</filtering>
+												<includes>
+													<include>**/*</include>
+												</includes>
+											</resource>
+										</resources>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+						<plugin>
+							<groupId>com.spotify</groupId>
+							<artifactId>docker-maven-plugin</artifactId>
+							<version>0.4.11</version>
+							<dependencies>
+								<dependency>
+									<groupId>com.github.jnr</groupId>
+									<artifactId>jnr-unixsocket</artifactId>
+									<version>0.13</version>
+								</dependency>
+							</dependencies>
+							<configuration>
+								<verbose>true</verbose>
+								<serverId>docker-hub</serverId>
+								<imageName>${docker.push.registry}/onap/${project.artifactId}</imageName>
+								<dockerDirectory>${docker.location}</dockerDirectory>
+								<imageTags>
+									<imageTag>latest</imageTag>
+								</imageTags>
+								<forceTags>true</forceTags>
+							</configuration>
+						</plugin>
         </plugins>
 
         <resources>
