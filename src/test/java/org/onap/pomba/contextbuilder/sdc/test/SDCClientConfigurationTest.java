@@ -15,29 +15,31 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.test;
 
-import org.onap.pomba.contextbuilder.sdc.SDCClientConfiguration;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import org.eclipse.jetty.util.security.Password;
+import org.junit.Test;
+import org.onap.pomba.contextbuilder.sdc.SDCClientConfiguration;
 
 public class SDCClientConfigurationTest {
 
     @Test
     public void testSDCClientConfig() throws Exception {
         SDCClientConfiguration config = new SDCClientConfiguration();
-        config.setConsumerID("consumerID");
-        config.setPassword("password");
+        config.setUsername("pomba");
         config.setSdcAddress("10.147.58.6:30204");
-        config.setUsername("username");
+        config.setPassword("OBF:1uha1uh81w8v1ugi1ugg");
+        config.setConsumerID("consumerID");
         config.setPollingTimeout("6666");
 
-        assertEquals("username", config.getUsername());
-        assertEquals("consumerID", config.getConsumerID());
-        assertEquals("password", config.getPassword());
-        assertEquals("6666", config.getPollingTimeout());
+        assertEquals("pomba", config.getUsername());
         assertEquals("10.147.58.6:30204", config.getSdcAddress());
+        assertEquals("consumerID", config.getConsumerID());
+        assertEquals("pomba", Password.deobfuscate(config.getPassword()));
+        assertEquals("6666", config.getPollingTimeout());
     }
 
 
@@ -46,7 +48,7 @@ public class SDCClientConfigurationTest {
         String msg = "Basic YWRtaW46YWRtaW4=";
         SDCClientConfiguration config = new SDCClientConfiguration();
         config.setHttpUserId("admin");
-        config.setHttpPassword("admin");
+        config.setHttpPassword("OBF:1u2a1toa1w8v1tok1u30");
         assertEquals(msg, config.getHttpBasicAuth());
     }
 }
