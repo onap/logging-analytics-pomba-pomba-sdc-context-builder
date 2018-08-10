@@ -69,6 +69,23 @@
       "revId": "9e607bf734cbd6fda5545c8f4337eeac4e980d08",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a00cb795",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/test/SDCClientConfigurationTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 3131
+      },
+      "writtenOn": "2018-08-10T14:14:00Z",
+      "side": 1,
+      "message": "I\u0027ll autowire \"client\" and check it\u0027s configuration here as well.",
+      "revId": "9e607bf734cbd6fda5545c8f4337eeac4e980d08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
