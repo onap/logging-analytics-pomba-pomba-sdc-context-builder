@@ -19,6 +19,7 @@ package org.onap.pomba.contextbuilder.sdc;
 
 import java.util.Base64;
 import lombok.Data;
+import org.eclipse.jetty.util.security.Password;
 import org.openecomp.sdc.http.SdcConnectorClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,7 +57,7 @@ public class SDCClientConfiguration {
 
     @Bean(name="httpBasicAuthorization")
     public String getHttpBasicAuth() {
-        String auth = new String(this.httpUserId + ":" + this.httpPassword);
+        String auth = new String(this.httpUserId + ":" + Password.deobfuscate(this.httpPassword));
 
         String encodedAuth =  Base64.getEncoder().encodeToString(auth.getBytes());
         return ("Basic " + encodedAuth);
@@ -69,7 +70,7 @@ public class SDCClientConfiguration {
         SDCContextConfig sdcContextConfig = new SDCContextConfig();
         sdcContextConfig.setUser(username);
         sdcContextConfig.setAsdcAddress(sdcAddress);
-        sdcContextConfig.setPassword(password);
+        sdcContextConfig.setPassword(Password.deobfuscate(password));
         sdcContextConfig.setUseHttpsWithDmaap(false);
         sdcContextConfig.setConsumerId(consumerID);
         sdcContextConfig.setActivateServerTLSAuth(false);
