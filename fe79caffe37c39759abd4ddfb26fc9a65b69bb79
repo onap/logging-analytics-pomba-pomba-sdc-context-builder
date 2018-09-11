@@ -16,6 +16,24 @@
       "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ac541cff",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3131
+      },
+      "writtenOn": "2018-09-11T15:25:49Z",
+      "side": 1,
+      "message": "I don\u0027t know that there is a compelling reason to.\n\nFor the other projects we\u0027ve been leaving them at 1.3.0.",
+      "parentUuid": "1a76adc5_71157d47",
+      "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
