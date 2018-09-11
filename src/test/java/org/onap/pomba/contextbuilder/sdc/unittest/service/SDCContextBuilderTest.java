@@ -15,6 +15,7 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.unittest.service;
 
 import static org.junit.Assert.assertEquals;
@@ -50,7 +51,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class SDCContextBuilderTest {
 
     static {
-        System.setProperty("test.tosca.csar.file", Paths.get(System.getProperty("user.dir"), "src/test/resources/toscaModel.csar.zip").toString());
+        System.setProperty("test.tosca.csar.file",
+                            Paths.get(System.getProperty("user.dir"),
+                            "src/test/resources/toscaModel.csar.zip").toString());
     }
 
 
@@ -60,11 +63,14 @@ public class SDCContextBuilderTest {
     private SpringService springService;
 
 
-    private String authorization = "Basic " + Base64.getEncoder().encodeToString(("admin" + ":" + "admin").getBytes(StandardCharsets.UTF_8));
+    private String authorization = "Basic "
+                                   + Base64.getEncoder()
+                                   .encodeToString(("admin" + ":" + "admin")
+                                   .getBytes(StandardCharsets.UTF_8));
     private String fromAppId = "POMBA";
     private String transactionId = UUID.randomUUID().toString();
     private String serviceInstanceId = "b06270ab-99e6-4a58-9bc0-db2df5c36f4d";
-    private String modelVersionId= "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
+    private String modelVersionId = "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
     private String modelInvariantId = "4fd21763-23ed-4f69-8654-e121626df327" ;
 
     @Before
@@ -78,21 +84,39 @@ public class SDCContextBuilderTest {
 
     @Test
     public void testNoAuthHeader() throws Exception {
-        Response response =  this.service.getContext(null, fromAppId, transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
+        Response response =  this.service.getContext(null,
+                                                     fromAppId,
+                                                     transactionId,
+                                                     serviceInstanceId,
+                                                     modelVersionId,
+                                                     modelInvariantId);
         assertEquals(Status.UNAUTHORIZED.getStatusCode(), response.getStatus());
 
     }
 
     @Test
     public void testBadAuthoriztion() throws Exception {
-        String authorizationTest = "Basic " + Base64.getEncoder().encodeToString(("Test" + ":" + "Fake").getBytes(StandardCharsets.UTF_8));
-        Response response = this.service.getContext(authorizationTest, fromAppId, transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
+        String authorizationTest = "Basic "
+                                   + Base64.getEncoder()
+                                   .encodeToString(("Test" + ":" + "Fake")
+                                   .getBytes(StandardCharsets.UTF_8));
+        Response response = this.service.getContext(authorizationTest,
+                                                    fromAppId,
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    modelVersionId,
+                                                    modelInvariantId);
         assertEquals(Status.UNAUTHORIZED.getStatusCode(), response.getStatus());
     }
 
     @Test
     public void testNullXFromAppId() throws Exception {
-        Response response = this.service.getContext(authorization, null, transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
+        Response response = this.service.getContext(authorization,
+                                                    null,
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    modelVersionId,
+                                                    modelInvariantId);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
         assertTrue(((String)response.getEntity()).contains("X-FromAppId"));
     }
@@ -100,7 +124,12 @@ public class SDCContextBuilderTest {
 
     @Test
     public void testEmptyXFromAppId() throws Exception {
-        Response response = this.service.getContext(authorization, "", transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
+        Response response = this.service.getContext(authorization,
+                                                    "",
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    modelVersionId,
+                                                    modelInvariantId);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
         assertTrue(((String)response.getEntity()).contains("X-FromAppId"));
     }
@@ -108,7 +137,12 @@ public class SDCContextBuilderTest {
 
     @Test
     public void testNullModelVersionId() throws Exception {
-        Response response = this.service.getContext(authorization, fromAppId, transactionId, serviceInstanceId, null, modelInvariantId);
+        Response response = this.service.getContext(authorization,
+                                                    fromAppId,
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    null,
+                                                    modelInvariantId);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
         assertTrue(((String)response.getEntity()).contains("modelVersionId"));
     }
@@ -116,7 +150,12 @@ public class SDCContextBuilderTest {
 
     @Test
     public void testEmptyModelVersionId() throws Exception {
-        Response response = this.service.getContext(authorization, fromAppId, transactionId, serviceInstanceId, "", modelInvariantId);
+        Response response = this.service.getContext(authorization,
+                                                    fromAppId,
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    "",
+                                                    modelInvariantId);
         assertEquals(Status.BAD_REQUEST.getStatusCode(), response.getStatus());
         assertTrue(((String)response.getEntity()).contains("modelVersionId"));
     }
@@ -124,7 +163,12 @@ public class SDCContextBuilderTest {
 
     @Test
     public void testRestAPISuccess() throws Exception {
-        Response response = this.service.getContext(authorization, fromAppId, transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
+        Response response = this.service.getContext(authorization,
+                                                    fromAppId,
+                                                    transactionId,
+                                                    serviceInstanceId,
+                                                    modelVersionId,
+                                                    modelInvariantId);
         assertEquals(200, response.getStatus());
     }
 
@@ -135,7 +179,7 @@ public class SDCContextBuilderTest {
                 serviceInstanceId, modelVersionId, modelInvariantId);
         SDCContextResponse sdcResponse = springService.getModelData(request);
         assertTrue(sdcResponse.getModelData().contains("service"));
-        assertTrue(sdcResponse.getModelData().contains("vf-list"));
+        assertTrue(sdcResponse.getModelData().contains("vfList"));
     }
 
 

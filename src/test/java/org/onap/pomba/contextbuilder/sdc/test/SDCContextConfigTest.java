@@ -15,6 +15,7 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.test;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +29,7 @@ public class SDCContextConfigTest {
     @Test
     public void testSDCContextConfig() throws Exception {
 
-        SDCContextConfig sdcContextConfig= new SDCContextConfig();
+        SDCContextConfig sdcContextConfig = new SDCContextConfig();
 
         sdcContextConfig.setUser("pomba");
         sdcContextConfig.setAsdcAddress("10.69.100.139");

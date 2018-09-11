@@ -15,9 +15,11 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.model.test;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.onap.pomba.contextbuilder.sdc.model.ArtifactInfo;
 import org.openecomp.sdc.api.notification.IArtifactInfo;
@@ -38,7 +40,7 @@ public class ArtifactInfoTest {
         artifact.setArtifactUUID("ae04b88e-e2ee-4ce9-a62d-3d08cf0f46db");
         artifact.setArtifactVersion("artifactVersion");
 
-        IArtifactInfo generatedArtifactTest=(IArtifactInfo)artifact;
+        IArtifactInfo generatedArtifactTest = (IArtifactInfo)artifact;
         artifact.setGeneratedArtifact(generatedArtifactTest);
 
         assertEquals(artifactType, artifact.getArtifactType());
