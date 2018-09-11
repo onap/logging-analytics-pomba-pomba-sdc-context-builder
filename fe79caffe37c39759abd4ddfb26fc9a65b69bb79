@@ -34,6 +34,24 @@
       "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4bc3ed37",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3479
+      },
+      "writtenOn": "2018-09-11T21:06:43Z",
+      "side": 1,
+      "message": "We might have done this for the AAI context builder, but I will have to check.  If not, we can leave it the way it is.",
+      "parentUuid": "1a76adc5_ac541cff",
+      "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
