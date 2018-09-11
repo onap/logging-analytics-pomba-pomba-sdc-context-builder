@@ -15,6 +15,7 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.model.test;
 
 import static org.junit.Assert.assertEquals;
@@ -30,11 +31,14 @@ public class SDCContextRequestTest {
 
     @Test
     public void testSDCContextRequest() throws Exception {
-        String authorization = "Basic " + Base64.getEncoder().encodeToString(("admin" + ":" + "admin").getBytes(StandardCharsets.UTF_8));
+        String authorization = "Basic "
+                               + Base64.getEncoder()
+                               .encodeToString(("admin" + ":" + "admin")
+                               .getBytes(StandardCharsets.UTF_8));
         String fromAppId = "POMBA";
         String transactionId = UUID.randomUUID().toString();
         String serviceInstanceId = "b06270ab-99e6-4a58-9bc0-db2df5c36f4d";
-        String modelVersionId= "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
+        String modelVersionId = "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
         String modelInvariantId = "4fd21763-23ed-4f69-8654-e121626df327" ;
 
         SDCContextRequest sdcContext = new SDCContextRequest(null, authorization, fromAppId, transactionId,

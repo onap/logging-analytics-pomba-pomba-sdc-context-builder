@@ -15,10 +15,12 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.onap.pomba.contextbuilder.sdc.ToscaBuilderConfig;
 
@@ -29,7 +31,7 @@ public class ToscaBuildConfigTest {
     public void testToscaBuilderConfig() throws Exception {
 
         String urlTemplate = "/sdc/v1/catalog/services/e9851a43-c068-4eb2-9fe7-2d123bd94ff0/toscaModel";
-        ToscaBuilderConfig configTest= new ToscaBuilderConfig();
+        ToscaBuilderConfig configTest = new ToscaBuilderConfig();
         configTest.setCsarFilePrefix("csar-");
         configTest.setCsarFileSuffix(".zip");
         configTest.setArtifactType("TOSCA_CSAR");
@@ -42,7 +44,7 @@ public class ToscaBuildConfigTest {
         assertEquals(urlTemplate, configTest.getUrlTemplate());
         assertEquals("/src/test/toscaModel.zip", configTest.getTestToscaCsarFile());
 
-        String str= configTest.toString();
+        String str = configTest.toString();
         assertTrue(str.contains("TOSCA_CSAR"));
         assertTrue(str.contains("csar-"));
         assertTrue(str.contains(".zip"));

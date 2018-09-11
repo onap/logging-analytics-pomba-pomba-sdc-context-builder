@@ -15,9 +15,9 @@
  * limitations under the License.
  * ============LICENSE_END=====================================================
  */
+
 package org.onap.pomba.contextbuilder.sdc.unittest.service;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.nio.charset.StandardCharsets;
@@ -54,11 +54,14 @@ public class SDCContextRestAPITest {
     private RestService service;
 
 
-    private String authorization = "Basic " + Base64.getEncoder().encodeToString(("admin" + ":" + "admin").getBytes(StandardCharsets.UTF_8));
+    private String authorization = "Basic "
+                                   + Base64.getEncoder()
+                                   .encodeToString(("admin" + ":" + "admin")
+                                   .getBytes(StandardCharsets.UTF_8));
     private String fromAppId = "POMBA";
     private String transactionId = UUID.randomUUID().toString();
     private String serviceInstanceId = "b06270ab-99e6-4a58-9bc0-db2df5c36f4d";
-    private String modelVersionId= "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
+    private String modelVersionId = "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
     private String modelInvariantId = "4fd21763-23ed-4f69-8654-e121626df327" ;
 
     @Before
@@ -72,19 +75,22 @@ public class SDCContextRestAPITest {
     }
 
     /**
-     * Call to SDC to download the Tosca Csar file
+     * Call to SDC to download the Tosca Csar file.
      *
      */
     @Test
     public void testVerifyAPI() throws Exception {
         //TODO we need mock the localhost as SDC to return success. For now, assume it failed to reach the SDC
         try {
-            this.service.getContext(authorization, fromAppId, transactionId, serviceInstanceId, modelVersionId, modelInvariantId);
-        }catch (ToscaCsarException x) {
+            this.service.getContext(authorization,
+                                    fromAppId,
+                                    transactionId,
+                                    serviceInstanceId,
+                                    modelVersionId,
+                                    modelInvariantId);
+        } catch (ToscaCsarException x) {
             fail("Failed to retrieve CSAR artifact from SDC");
         }
 
     }
-
-
 }

@@ -48,7 +48,7 @@ public class ToscaModelConverter {
     public static ModelContext convert(ISdcCsarHelper helper) throws ToscaCsarException {
         ModelContext context = new ModelContext();
         context.setService(generateService(helper.getServiceMetadata()));
-        context.setVf(generateVfList(helper));
+        context.setVfs(generateVfList(helper));
         return context;
     }
 
@@ -86,7 +86,7 @@ public class ToscaModelConverter {
             vf.setUuid(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
 
             String customizationUUID = vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_CUSTOMIZATIONUUID);
-            vf.setVnfc(generateVnfcList(helper.getVfcListByVf(customizationUUID)));
+            vf.setVnfcs(generateVnfcList(helper.getVfcListByVf(customizationUUID)));
             vf.setVfModules(generateVfModuleList(helper.getVfModulesByVf(customizationUUID)));
 
             vfList.add(vf);
@@ -110,7 +110,7 @@ public class ToscaModelConverter {
 
             Object nfcNamingCode = vfcNodeTemplate.getPropertyValue(PROPERTY_NAME_NFC_NAMING_CODE);
             if (nfcNamingCode != null) {
-                vnfc.setNfcNamingCode((String)nfcNamingCode);
+                vnfc.setType((String)nfcNamingCode);
             }
 
             vnfcList.add(vnfc);
