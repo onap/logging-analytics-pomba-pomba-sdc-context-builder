@@ -52,6 +52,24 @@
       "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3a1fd56d",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3131
+      },
+      "writtenOn": "2018-09-12T15:00:47Z",
+      "side": 1,
+      "message": "Agreed to upgrade to 1.3.1-SNAPSHOT",
+      "parentUuid": "1a76adc5_4bc3ed37",
+      "revId": "fe79caffe37c39759abd4ddfb26fc9a65b69bb79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
