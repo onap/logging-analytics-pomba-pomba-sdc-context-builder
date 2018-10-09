@@ -105,12 +105,6 @@
       <artifactId>jetty-security</artifactId>
     </dependency>
     <dependency>
-      <groupId>au.com.dius</groupId>
-      <artifactId>pact-jvm-provider-junit_2.11</artifactId>
-      <version>3.5.11</version>
-    </dependency>
-
-    <dependency>
       <groupId>io.swagger</groupId>
       <artifactId>swagger-core</artifactId>
       <version>1.5.9</version>

@@ -44,10 +44,6 @@ public class SDCContextConfig implements IConfiguration {
         return msgBusAddress;
     }
 
-    public void setMsgBusAddress(List<String> msgBusAddress) {
-        this.msgBusAddress = msgBusAddress;
-    }
-
     @Override
 
     public String getAsdcAddress() {
@@ -116,17 +112,9 @@ public class SDCContextConfig implements IConfiguration {
         return relevantArtifactTypes;
     }
 
-    public void setRelevantArtifactTypes(List<String> relevantArtifactTypes) {
-        this.relevantArtifactTypes = relevantArtifactTypes;
-    }
-
     @Override
     public int getPollingInterval() {
         return pollingInterval;
-    }
-
-    public void setPollingInterval(int pollingInterval) {
-        this.pollingInterval = pollingInterval;
     }
 
     @Override
@@ -143,10 +131,6 @@ public class SDCContextConfig implements IConfiguration {
         return keyStorePath;
     }
 
-    public void setKeyStorePath(String keyStorePath) {
-        this.keyStorePath = keyStorePath;
-    }
-
     public boolean activateServerTLSAuth() {
         return activateServerTLSAuth;
     }
@@ -158,10 +142,6 @@ public class SDCContextConfig implements IConfiguration {
     @Override
     public boolean isFilterInEmptyResources() {
         return isFilterInEmptyResources;
-    }
-
-    public void setFilterInEmptyResources(boolean filterInEmptyResources) {
-        isFilterInEmptyResources = filterInEmptyResources;
     }
 
     @Override

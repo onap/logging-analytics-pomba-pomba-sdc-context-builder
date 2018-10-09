@@ -59,17 +59,6 @@ public class ToscaCsarException extends Exception {
         httpStatus = Status.INTERNAL_SERVER_ERROR;
     }
 
-    /**
-     * Constructor for an instance of this exception with a message, status and actual exception encountered.
-     * @param httpStatus
-     * @param message
-     * @param cause
-     */
-    public ToscaCsarException(Status httpStatus, String message, Throwable cause) {
-        super(message, cause);
-        this.errorMessage = message;
-        this.httpStatus = httpStatus;
-    }
 
     public Status getStatus() {
         return httpStatus;

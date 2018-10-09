@@ -20,7 +20,6 @@ package org.onap.pomba.contextbuilder.sdc.model.handlers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import groovy.util.logging.Slf4j;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -45,7 +44,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component("ToscaCsarArtifactHandler")
 public class ToscaCsarArtifactHandler {
 
