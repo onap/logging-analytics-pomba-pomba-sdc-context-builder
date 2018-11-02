@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.onap.pomba.contextbuilder.sdc.model.ArtifactInfo;
-import org.openecomp.sdc.api.notification.IArtifactInfo;
+import org.onap.sdc.api.notification.IArtifactInfo;
 
 public class ArtifactInfoTest {
 

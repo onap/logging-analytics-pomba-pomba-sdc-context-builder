@@ -20,7 +20,7 @@ package org.onap.pomba.contextbuilder.sdc;
 import java.util.Base64;
 import lombok.Data;
 import org.eclipse.jetty.util.security.Password;
-import org.openecomp.sdc.http.SdcConnectorClient;
+import org.onap.sdc.http.SdcConnectorClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -76,7 +76,7 @@ public class SDCClientConfiguration {
         sdcContextConfig.setActivateServerTLSAuth(false);
         sdcContextConfig.setPollingTimeout(Integer.parseInt(pollingTimeout));
 
-        org.openecomp.sdc.impl.Configuration config = new org.openecomp.sdc.impl.Configuration(sdcContextConfig);
+        org.onap.sdc.impl.Configuration config = new org.onap.sdc.impl.Configuration(sdcContextConfig);
         client.init(config);
 
         return client;
