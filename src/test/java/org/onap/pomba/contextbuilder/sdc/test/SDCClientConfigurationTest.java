@@ -23,8 +23,8 @@ import static org.junit.Assert.assertEquals;
 import org.eclipse.jetty.util.security.Password;
 import org.junit.Test;
 import org.onap.pomba.contextbuilder.sdc.SDCClientConfiguration;
-import org.openecomp.sdc.api.consumer.IConfiguration;
-import org.openecomp.sdc.http.SdcConnectorClient;
+import org.onap.sdc.api.consumer.IConfiguration;
+import org.onap.sdc.http.SdcConnectorClient;
 
 public class SDCClientConfigurationTest {
 

@@ -20,7 +20,7 @@ package org.onap.pomba.contextbuilder.sdc.model;
 import java.util.List;
 import lombok.Data;
 import lombok.ToString;
-import org.openecomp.sdc.api.notification.IArtifactInfo;
+import org.onap.sdc.api.notification.IArtifactInfo;
 
 @Data
 @ToString(includeFieldNames = true)

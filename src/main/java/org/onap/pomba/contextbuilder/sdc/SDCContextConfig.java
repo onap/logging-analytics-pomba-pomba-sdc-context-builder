@@ -18,7 +18,7 @@
 package org.onap.pomba.contextbuilder.sdc;
 
 import java.util.List;
-import org.openecomp.sdc.api.consumer.IConfiguration;
+import org.onap.sdc.api.consumer.IConfiguration;
 
 public class SDCContextConfig implements IConfiguration {
 
