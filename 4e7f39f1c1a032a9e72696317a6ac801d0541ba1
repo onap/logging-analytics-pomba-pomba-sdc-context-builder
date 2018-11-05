@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_71dd4b14",
+        "filename": "config/application.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 29
+      },
+      "writtenOn": "2018-11-05T14:36:18Z",
+      "side": 1,
+      "message": "why are we using nodeport vs sdc/sdc-be.{{values.Namespace}} kind of thing ?",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "4e7f39f1c1a032a9e72696317a6ac801d0541ba1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
