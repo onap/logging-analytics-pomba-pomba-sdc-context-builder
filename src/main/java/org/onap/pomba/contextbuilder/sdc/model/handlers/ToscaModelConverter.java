@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.onap.pomba.common.datatypes.ModelContext;
 import org.onap.pomba.common.datatypes.Service;
-import org.onap.pomba.common.datatypes.VF;
 import org.onap.pomba.common.datatypes.VFModule;
+import org.onap.pomba.common.datatypes.VNF;
 import org.onap.pomba.common.datatypes.VNFC;
 import org.onap.pomba.contextbuilder.sdc.exception.ToscaCsarException;
 import org.onap.sdc.tosca.parser.api.ISdcCsarHelper;
@@ -32,8 +32,6 @@ import org.onap.sdc.toscaparser.api.NodeTemplate;
 import org.onap.sdc.toscaparser.api.elements.Metadata;
 
 public class ToscaModelConverter {
-
-    private static final String PROPERTY_NAME_NFC_NAMING_CODE = "nfc_naming_code";
 
     private ToscaModelConverter() {
 
@@ -48,7 +46,7 @@ public class ToscaModelConverter {
     public static ModelContext convert(ISdcCsarHelper helper) throws ToscaCsarException {
         ModelContext context = new ModelContext();
         context.setService(generateService(helper.getServiceMetadata()));
-        context.setVfs(generateVfList(helper));
+        context.setVnfs(generateVnfList(helper));
         return context;
     }
 
@@ -62,7 +60,7 @@ public class ToscaModelConverter {
         Service service = new Service();
         if (serviceMetadata != null) {
             service.setName(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_NAME));
-            service.setInvariantUuid(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
+            service.setModelInvariantUUID(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
             service.setUuid(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
         }
         return service;
@@ -74,24 +72,24 @@ public class ToscaModelConverter {
      * @return
      * @throws ToscaCsarException
      */
-    private static List<VF> generateVfList(ISdcCsarHelper helper) throws ToscaCsarException {
+    private static List<VNF> generateVnfList(ISdcCsarHelper helper) throws ToscaCsarException {
 
-        List<VF> vfList = new ArrayList<>();
+        List<VNF> vnfList = new ArrayList<>();
         List<NodeTemplate> vfNodeTemplateList = helper.getServiceVfList();
         for (NodeTemplate vfNodeTemplate : vfNodeTemplateList) {
-            VF vf = new VF();
-            vf.setName(vfNodeTemplate.getName());
-            vf.setType(vfNodeTemplate.getType());
-            vf.setInvariantUuid(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
-            vf.setUuid(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
+            VNF vnf = new VNF();
+            vnf.setName(vfNodeTemplate.getName());
+            vnf.setType(vfNodeTemplate.getType());
+            vnf.setModelInvariantUUID(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
+            vnf.setUuid(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
 
             String customizationUUID = vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_CUSTOMIZATIONUUID);
-            vf.setVnfcs(generateVnfcList(helper.getVfcListByVf(customizationUUID)));
-            vf.setVfModules(generateVfModuleList(helper.getVfModulesByVf(customizationUUID)));
+            vnf.setVnfcs(generateVnfcList(helper.getVfcListByVf(customizationUUID)));
+            vnf.setVfModules(generateVfModuleList(helper.getVfModulesByVf(customizationUUID)));
 
-            vfList.add(vf);
+            vnfList.add(vnf);
         }
-        return vfList;
+        return vnfList;
     }
 
     /**
@@ -105,14 +103,8 @@ public class ToscaModelConverter {
         for (NodeTemplate vfcNodeTemplate : vfcNodeTemplateList) {
             VNFC vnfc = new VNFC();
             vnfc.setName(vfcNodeTemplate.getName());
-            vnfc.setInvariantUuid(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
+            vnfc.setModelInvariantUUID(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
             vnfc.setUuid(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
-
-            Object nfcNamingCode = vfcNodeTemplate.getPropertyValue(PROPERTY_NAME_NFC_NAMING_CODE);
-            if (nfcNamingCode != null) {
-                vnfc.setType((String)nfcNamingCode);
-            }
-
             vnfcList.add(vnfc);
         }
         return vnfcList;
@@ -128,7 +120,7 @@ public class ToscaModelConverter {
         List<VFModule> vfModuleList = new ArrayList<>();
         for (Group moduleGroup : vfModuleGroupList) {
             VFModule vfModule = new VFModule();
-            vfModule.setInvariantUuid(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELINVARIANTUUID));
+            vfModule.setModelInvariantUUID(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELINVARIANTUUID));
             vfModule.setUuid(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELUUID));
 
             Object minInstances = moduleGroup.getPropertyValue(SdcPropertyNames.PROPERTY_NAME_MINVFMODULEINSTANCES);

@@ -179,7 +179,7 @@ public class SDCContextBuilderTest {
                 serviceInstanceId, modelVersionId, modelInvariantId);
         SDCContextResponse sdcResponse = springService.getModelData(request);
         assertTrue(sdcResponse.getModelData().contains("service"));
-        assertTrue(sdcResponse.getModelData().contains("vfList"));
+        assertTrue(sdcResponse.getModelData().contains("vnfList"));
     }
 
 
