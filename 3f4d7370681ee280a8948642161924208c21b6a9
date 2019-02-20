@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03141e8d_77334dc7",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/exception/ToscaCsarExceptionTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1077
+      },
+      "writtenOn": "2019-02-20T23:09:10Z",
+      "side": 1,
+      "message": "minor tabs for spaces - should be 4 spaces - just check your eclipse",
+      "revId": "3f4d7370681ee280a8948642161924208c21b6a9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef260815_f365a9eb",
+        "filename": "src/test/java/org/onap/pomba/contextbuilder/sdc/exception/ToscaCsarExceptionTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1077
+      },
+      "writtenOn": "2019-02-20T23:09:10Z",
+      "side": 1,
+      "message": "cause is always null from what I read here",
+      "revId": "3f4d7370681ee280a8948642161924208c21b6a9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
