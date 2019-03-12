@@ -43,9 +43,9 @@ public class ToscaModelConverter {
      * @return
      * @throws ToscaCsarException
      */
-    public static ModelContext convert(ISdcCsarHelper helper) throws ToscaCsarException {
+    public static ModelContext convert(ISdcCsarHelper helper,String modelVersionId, String serviceInstanceId) throws ToscaCsarException {
         ModelContext context = new ModelContext();
-        context.setService(generateService(helper.getServiceMetadata()));
+        context.setService(generateService(helper.getServiceMetadata(),modelVersionId, serviceInstanceId));
         context.setVnfs(generateVnfList(helper));
         return context;
     }
@@ -56,12 +56,13 @@ public class ToscaModelConverter {
      * @return
      * @throws ToscaCsarException
      */
-    private static Service generateService(Metadata serviceMetadata) throws ToscaCsarException {
+    private static Service generateService(Metadata serviceMetadata,String modelVersionId, String serviceInstanceId) throws ToscaCsarException {
         Service service = new Service();
         if (serviceMetadata != null) {
             service.setName(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_NAME));
             service.setModelInvariantUUID(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
-            service.setUuid(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
+            service.setModelVersionID(modelVersionId);
+            service.setUuid(serviceInstanceId);
         }
         return service;
     }

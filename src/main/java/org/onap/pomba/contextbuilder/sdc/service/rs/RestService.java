@@ -32,7 +32,7 @@ import org.onap.pomba.contextbuilder.sdc.exception.ToscaCsarException;
 
 
 @Api
-@Path("/service")
+@Path("{version: v2}/service")
 @Produces({MediaType.APPLICATION_JSON})
 public interface RestService {
 
