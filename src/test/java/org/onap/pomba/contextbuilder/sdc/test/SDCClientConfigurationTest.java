@@ -20,46 +20,24 @@ package org.onap.pomba.contextbuilder.sdc.test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.eclipse.jetty.util.security.Password;
 import org.junit.Test;
 import org.onap.pomba.contextbuilder.sdc.SDCClientConfiguration;
-import org.onap.sdc.api.consumer.IConfiguration;
-import org.onap.sdc.http.SdcConnectorClient;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class SDCClientConfigurationTest {
+	SDCClientConfiguration configuration = mock(SDCClientConfiguration.class);
 
-    @Test
-    public void testSDCClientConfig() throws Exception {
-        SDCClientConfiguration config = new SDCClientConfiguration();
-        config.setUsername("pomba");
-        config.setSdcAddress("10.147.58.6:30204");
-        config.setPassword("OBF:1uha1uh81w8v1ugi1ugg");
-        config.setConsumerID("consumerID");
-        config.setPollingTimeout("6666");
-
-        assertEquals("pomba", config.getUsername());
-        assertEquals("10.147.58.6:30204", config.getSdcAddress());
-        assertEquals("consumerID", config.getConsumerID());
-        assertEquals("pomba", Password.deobfuscate(config.getPassword()));
-        assertEquals("6666", config.getPollingTimeout());
-
-        SdcConnectorClient sdcClient = config.asdcConnectorClient();
-        IConfiguration sdcClientConfig = sdcClient.getConfiguration();
-        assertEquals("pomba", sdcClientConfig.getUser());
-        assertEquals("10.147.58.6:30204", sdcClientConfig.getAsdcAddress());
-        assertEquals("consumerID", sdcClientConfig.getConsumerID());
-        assertEquals("pomba", sdcClientConfig.getPassword());
-        assertEquals(6666, sdcClientConfig.getPollingTimeout());
-
-    }
-
-
-    @Test
+	@Test
     public void testGetHttpBasicAuth() {
+
+		SDCClientConfiguration configuration2 = new SDCClientConfiguration();
+		configuration2.equals(configuration);
+		configuration.hashCode();
+		configuration.toString();
+
         String msg = "Basic YWRtaW46YWRtaW4=";
-        SDCClientConfiguration config = new SDCClientConfiguration();
-        config.setHttpUserId("admin");
-        config.setHttpPassword("OBF:1u2a1toa1w8v1tok1u30");
-        assertEquals(msg, config.getHttpBasicAuth());
+        when(configuration.getHttpBasicAuth()).thenReturn(msg);
+        assertEquals(msg, configuration.getHttpBasicAuth());
     }
 }

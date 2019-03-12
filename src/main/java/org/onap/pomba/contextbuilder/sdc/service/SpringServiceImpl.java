@@ -46,7 +46,7 @@ public class SpringServiceImpl implements SpringService {
         SDCContextResponse sdcContextResponse = null;
         try {
             ctxRequest.validate(httpBasicAuthorization);
-            sdcContextResponse = toscaCsarArtifactHandler.getToscaModel(ctxRequest.getModelVersionId());
+            sdcContextResponse = toscaCsarArtifactHandler.getToscaModel(ctxRequest.getModelVersionId(), ctxRequest.getServiceInstanceId());
         } catch (ToscaCsarException e) {
             log.error(e.getStatus().getStatusCode() + " " + e.getStatus()+ ", Reason: " + e.getMessage());
             sdcContextResponse = new SDCContextResponse(e.getStatus(), e.getMessage());

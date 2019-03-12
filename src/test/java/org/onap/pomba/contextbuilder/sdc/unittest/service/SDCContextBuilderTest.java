@@ -43,6 +43,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.List;
+import org.onap.pomba.common.datatypes.ModelContext;
+import org.onap.pomba.common.datatypes.VFModule;
+import org.onap.pomba.common.datatypes.VNF;
+import com.google.gson.Gson;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
@@ -70,7 +75,7 @@ public class SDCContextBuilderTest {
     private String fromAppId = "POMBA";
     private String transactionId = UUID.randomUUID().toString();
     private String serviceInstanceId = "b06270ab-99e6-4a58-9bc0-db2df5c36f4d";
-    private String modelVersionId = "e9851a43-c068-4eb2-9fe7-2d123bd94ff0";
+    private String modelVersionId = "f55354f4-da10-48ee-b4a5-cca31cdebc72";
     private String modelInvariantId = "4fd21763-23ed-4f69-8654-e121626df327" ;
 
     @Before
@@ -170,6 +175,21 @@ public class SDCContextBuilderTest {
                                                     modelVersionId,
                                                     modelInvariantId);
         assertEquals(200, response.getStatus());
+
+        Gson gson = new Gson();
+        ModelContext modelCtx = gson.fromJson((String) response.getEntity(), ModelContext.class);
+
+
+        // verify results
+        assertEquals(serviceInstanceId, modelCtx.getService().getUuid());
+        assertEquals(modelVersionId, modelCtx.getService().getModelVersionID());
+
+        List<VNF> vnfList = modelCtx.getVnfs();
+        assertEquals(vnfList.size(), 1);
+        List<VFModule>  vfModuleList = vnfList.get(0).getVfModules();
+        assertEquals(vfModuleList.size(), 1);
+        assertEquals("8e363c35-60eb-45c0-9f14-2f3936f460c9",vfModuleList.get(0).getModelVersionID() ); // ModelVersionId was set to vfModuleModelUUID of test data
+
     }
 
 

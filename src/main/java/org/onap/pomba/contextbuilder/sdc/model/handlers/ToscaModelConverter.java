@@ -43,9 +43,9 @@ public class ToscaModelConverter {
      * @return
      * @throws ToscaCsarException
      */
-    public static ModelContext convert(ISdcCsarHelper helper) throws ToscaCsarException {
+    public static ModelContext convert(ISdcCsarHelper helper,String modelVersionId, String serviceInstanceId) throws ToscaCsarException {
         ModelContext context = new ModelContext();
-        context.setService(generateService(helper.getServiceMetadata()));
+        context.setService(generateService(helper.getServiceMetadata(), serviceInstanceId));
         context.setVnfs(generateVnfList(helper));
         return context;
     }
@@ -56,12 +56,12 @@ public class ToscaModelConverter {
      * @return
      * @throws ToscaCsarException
      */
-    private static Service generateService(Metadata serviceMetadata) throws ToscaCsarException {
+    private static Service generateService(Metadata serviceMetadata, String serviceInstanceId) throws ToscaCsarException {
         Service service = new Service();
         if (serviceMetadata != null) {
-            service.setName(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_NAME));
             service.setModelInvariantUUID(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
-            service.setUuid(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
+            service.setModelVersionID(serviceMetadata.getValue(SdcPropertyNames.PROPERTY_NAME_UUID)); //assign sdc UUID to ModelVersionID based on common model mapping
+            service.setUuid(serviceInstanceId);
         }
         return service;
     }
@@ -78,10 +78,9 @@ public class ToscaModelConverter {
         List<NodeTemplate> vfNodeTemplateList = helper.getServiceVfList();
         for (NodeTemplate vfNodeTemplate : vfNodeTemplateList) {
             VNF vnf = new VNF();
-            vnf.setName(vfNodeTemplate.getName());
             vnf.setType(vfNodeTemplate.getType());
             vnf.setModelInvariantUUID(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
-            vnf.setUuid(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
+            vnf.setModelVersionID(vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID)); //assign sdc UUID to ModelVersionID based on common model mapping
 
             String customizationUUID = vfNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_CUSTOMIZATIONUUID);
             vnf.setVnfcs(generateVnfcList(helper.getVfcListByVf(customizationUUID)));
@@ -102,9 +101,8 @@ public class ToscaModelConverter {
         List<VNFC> vnfcList = new ArrayList<>();
         for (NodeTemplate vfcNodeTemplate : vfcNodeTemplateList) {
             VNFC vnfc = new VNFC();
-            vnfc.setName(vfcNodeTemplate.getName());
             vnfc.setModelInvariantUUID(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_INVARIANTUUID));
-            vnfc.setUuid(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));
+            vnfc.setModelVersionID(vfcNodeTemplate.getMetaData().getValue(SdcPropertyNames.PROPERTY_NAME_UUID));   //assign sdc UUID to ModelVersionID based on common model mapping
             vnfcList.add(vnfc);
         }
         return vnfcList;
@@ -121,7 +119,9 @@ public class ToscaModelConverter {
         for (Group moduleGroup : vfModuleGroupList) {
             VFModule vfModule = new VFModule();
             vfModule.setModelInvariantUUID(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELINVARIANTUUID));
-            vfModule.setUuid(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELUUID));
+            vfModule.setModelVersionID(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULEMODELUUID));
+            vfModule.setModelCustomizationUUID(moduleGroup.getMetadata().getValue(SdcPropertyNames.PROPERTY_NAME_VFMODULECUSTOMIZATIONUUID));
+
 
             Object minInstances = moduleGroup.getPropertyValue(SdcPropertyNames.PROPERTY_NAME_MINVFMODULEINSTANCES);
             if (minInstances != null) {

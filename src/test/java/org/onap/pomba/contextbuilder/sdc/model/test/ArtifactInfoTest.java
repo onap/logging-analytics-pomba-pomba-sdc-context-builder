@@ -40,8 +40,15 @@ public class ArtifactInfoTest {
         artifact.setArtifactUUID("ae04b88e-e2ee-4ce9-a62d-3d08cf0f46db");
         artifact.setArtifactVersion("artifactVersion");
 
+        ArtifactInfo artifact2 = new ArtifactInfo();
+
+        artifact2.equals(artifact);
+        artifact.toString();
+        artifact.hashCode();
+
         IArtifactInfo generatedArtifactTest = (IArtifactInfo)artifact;
         artifact.setGeneratedArtifact(generatedArtifactTest);
+
 
         assertEquals(artifactType, artifact.getArtifactType());
         assertEquals(url, artifact.getArtifactURL());

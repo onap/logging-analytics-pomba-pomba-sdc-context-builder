@@ -66,7 +66,7 @@ public class ToscaCsarArtifactHandler {
      * @return Response containing a subset of the model data
      * @throws ToscaCsarException
      */
-    public SDCContextResponse getToscaModel(String modelVersionId) throws ToscaCsarException {
+    public SDCContextResponse getToscaModel(String modelVersionId, String serviceInstanceId) throws ToscaCsarException {
 
         ISdcCsarHelper helper = sdcCsarHelpers.get(modelVersionId);
         if(helper == null) {
@@ -86,7 +86,7 @@ public class ToscaCsarArtifactHandler {
         }
 
         Gson gson = new GsonBuilder().create();
-        String modelData = gson.toJson(ToscaModelConverter.convert(helper));
+        String modelData = gson.toJson(ToscaModelConverter.convert(helper, modelVersionId, serviceInstanceId));
         response.setModelData(modelData);
         return response;
     }
@@ -103,7 +103,6 @@ public class ToscaCsarArtifactHandler {
         if (config.getTestToscaCsarFile() != null && !config.getTestToscaCsarFile().isEmpty()) {
             return getSdcToscaContext(config.getTestToscaCsarFile());
         }
-
         String url = generateURL(modelVersionId);
         log.debug("Downloading CSAR using URL suffix: " + url);
 
@@ -142,20 +141,20 @@ public class ToscaCsarArtifactHandler {
     }
 
 
-    private String generateURL(String uuid) {
-        return MessageFormat.format(config.getUrlTemplate(), uuid);
+    private String generateURL(String modelVersionId) {
+        return MessageFormat.format(config.getUrlTemplate(), modelVersionId);
     }
 
 
     /**
      * Creates a temporary file for downloaded CSAR file
-     * @param uuid
+     * @param modelVersionId
      * @return
      * @throws ToscaCsarException
      */
-    private String generateTemporaryFile(String uuid) throws ToscaCsarException {
+    private String generateTemporaryFile(String modelVersionId) throws ToscaCsarException {
         try {
-            String fullPrefix = config.getCsarFilePrefix() + uuid + "-";
+            String fullPrefix = config.getCsarFilePrefix() + modelVersionId + "-";
             String suffix = (config.getCsarFileSuffix() == null ? DEFAULT_CSAR_FILE_EXTENSION : config.getCsarFileSuffix());
             Path downloadFile = Files.createTempFile(fullPrefix, suffix);
             log.debug("Temporary CSAR file name: " + downloadFile.toString());
