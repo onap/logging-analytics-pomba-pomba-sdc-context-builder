@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "866a0c90_39fb83c8",
+        "filename": "src/main/java/org/onap/pomba/contextbuilder/sdc/model/handlers/ToscaModelConverter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 787
+      },
+      "writtenOn": "2019-03-12T20:17:16Z",
+      "side": 1,
+      "message": "Should you read the modelVersionId from the SDC MetaData, not the input? ( Although they should be the same?)",
+      "revId": "87725d4e609ef20d61673427f9ad0f2c471b0e08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
