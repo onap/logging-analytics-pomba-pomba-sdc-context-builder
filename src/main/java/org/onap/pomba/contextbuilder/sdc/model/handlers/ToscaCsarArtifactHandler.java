@@ -29,6 +29,9 @@ import java.nio.file.StandardOpenOption;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.ws.rs.core.Response.Status;
+
 import org.onap.pomba.contextbuilder.sdc.ToscaBuilderConfig;
 import org.onap.pomba.contextbuilder.sdc.exception.ToscaCsarException;
 import org.onap.pomba.contextbuilder.sdc.model.ArtifactInfo;
@@ -81,7 +84,8 @@ public class ToscaCsarArtifactHandler {
 
         if(helper == null) {
             log.debug("CSAR artifact not found for model-version-id: " + modelVersionId);
-            response.setModelData("");
+            response.setModelData("CSAR artifact not found for model-version-id: " + modelVersionId);
+            response.setHttpStatus(Status.NOT_FOUND);
             return response;
         }
 
@@ -99,7 +103,6 @@ public class ToscaCsarArtifactHandler {
      * @throws ToscaCsarException
      */
     private ISdcCsarHelper retrieveToscaCsarArtifact(String modelVersionId) throws ToscaCsarException {
-
         if (config.getTestToscaCsarFile() != null && !config.getTestToscaCsarFile().isEmpty()) {
             return getSdcToscaContext(config.getTestToscaCsarFile());
         }
