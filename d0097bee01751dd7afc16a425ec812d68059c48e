@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dcee441_07c181ba",
+        "filename": "pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 787
+      },
+      "writtenOn": "2019-03-15T18:37:46Z",
+      "side": 1,
+      "message": "No need to keep this comment?",
+      "revId": "d0097bee01751dd7afc16a425ec812d68059c48e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
