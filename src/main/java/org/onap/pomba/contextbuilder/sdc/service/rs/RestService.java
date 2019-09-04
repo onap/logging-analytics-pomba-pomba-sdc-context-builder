@@ -17,10 +17,8 @@
  */
 package org.onap.pomba.contextbuilder.sdc.service.rs;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
@@ -31,7 +29,6 @@ import javax.ws.rs.core.Response;
 import org.onap.pomba.contextbuilder.sdc.exception.ToscaCsarException;
 
 
-@Api
 @Path("{version: v2}/service")
 @Produces({MediaType.APPLICATION_JSON})
 public interface RestService {
@@ -40,15 +37,14 @@ public interface RestService {
     @GET
     @Path("/context")
     @Produces({ MediaType.APPLICATION_JSON })
-    @ApiOperation(
-            value = "Retrieve SDC CSAR file for a give UUID",
-            notes = "This method returns SDC CSAR encoded value. ",
-            response = Response.class)
-    @ApiResponses(value = {
-            @ApiResponse(code = 404, message = "Service not available"),
-            @ApiResponse(code = 400, message = "Bad request"),
-            @ApiResponse(code = 401, message = "Unauthorized"),
-            @ApiResponse(code = 500, message = "Unexpected Runtime error") })
+    @Operation(
+            summary = "Retrieve SDC CSAR file for a give UUID",
+            description = "This method returns SDC CSAR encoded value. ",
+            responses = {
+                @ApiResponse(responseCode = "404", description = "Service not available"),
+                @ApiResponse(responseCode = "400", description = "Bad request"),
+                @ApiResponse(responseCode = "401", description = "Unauthorized"),
+                @ApiResponse(responseCode = "500", description = "Unexpected Runtime error") })
     public Response getContext(
             @HeaderParam("Authorization") String authorization,
             @HeaderParam("X-FromAppId") String xFromAppId,
