@@ -227,7 +227,7 @@
     <dependency>
       <groupId>org.onap.logging-analytics.pomba</groupId>
       <artifactId>pomba-audit-common</artifactId>
-      <version>1.5.1-SNAPSHOT</version>
+      <version>1.5.1</version>
       <exclusions>
         <exclusion>
           <groupId>io.swagger</groupId>
